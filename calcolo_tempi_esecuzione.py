@@ -113,7 +113,7 @@ def plot_barchart(name_csv_file):
 
     plt.xlabel('Tempo di Esecuzione in secondi', fontsize=13)
     plt.ylabel('Nome del Benchmark', fontsize=13)
-    plt.title('Calcolo dei tempi di esecuzione dei vari benchamark in TACLeBench', fontsize=16)
+    plt.title('Calcolo dei tempi di esecuzione dei vari benchmark in TACLeBench', fontsize=16)
     
     # Si aggiunge una griglia verticale
     plt.grid(axis='x', linestyle='--', alpha=0.6)
