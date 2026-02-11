@@ -15,7 +15,7 @@ def run_all_benchmarks(base_path):
     # si estrae il percorso corretto (current working directory)
     if not os.path.exists(base_path):
         print(f"ERROR: la cartella '{base_path}' non esiste")
-        print(f"Il percorso attuale in cui ci si trova: {os.getcwd()}")
+        print(f"Percorso attuale in cui ci si trova: {os.getcwd()}")
         return []
 
     # Inzio dell'analisi nella cartella base_path
@@ -113,7 +113,7 @@ def plot_barchart(name_csv_file):
 
     plt.xlabel('Tempo di Esecuzione in secondi', fontsize=13)
     plt.ylabel('Nome del Benchmark', fontsize=13)
-    plt.title('Calcolo dei tempi di esecuzione dei vari benchmark di TACLeBench con input modificati', fontsize=16)
+    plt.title('Tempi di esecuzione dei vari benchmark di TACLeBench con input modificati', fontsize=16)
     
     # Si aggiunge una griglia verticale
     plt.grid(axis='x', linestyle='--', alpha=0.6)
