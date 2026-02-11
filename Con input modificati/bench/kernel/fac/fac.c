@@ -9,7 +9,7 @@
 
   Function: fac is a program to calculate factorials.
     This program computes the sum of the factorials
-    from zero to five.
+    from zero to seven.
 
   Source: MRTC
           http://www.mrtc.mdh.se/projects/wcet/wcet_bench/fac/fac.c
