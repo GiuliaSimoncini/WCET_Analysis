@@ -702,8 +702,8 @@ void adpcm_enc_init( void )
   adpcm_enc_reset();
 
   /* read in amplitude and frequency for test data */
-  j = 10;
-  f = 2000;
+  j = 50;
+  f = 4000;
 
   /* 16 KHz sample rate */
   /* XXmain_0, MAX: 2 */
@@ -728,7 +728,7 @@ int adpcm_enc_return( void )
   for ( i = 0 ; i < IN_END ; i += 2 )
     check_sum += adpcm_enc_compressed[ i / 2 ];
 
-  return check_sum != 385;
+  return check_sum != 413;
 }
 
 

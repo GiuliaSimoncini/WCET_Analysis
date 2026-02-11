@@ -30,7 +30,7 @@
 */
 
 #include "jpeglib.h"
-
+#include <stdio.h>
 
 /*
   Forward declaration of functions
@@ -79,7 +79,7 @@ struct jpeg_compress_struct cjpeg_transupp_dstinfo;
 
 void cjpeg_transupp_initSeed( void )
 {
-  cjpeg_transupp_seed = 0;
+  cjpeg_transupp_seed = 26;
 }
 
 
@@ -709,5 +709,7 @@ int main( void )
   cjpeg_transupp_init();
   cjpeg_transupp_main();
 
-  return ( cjpeg_transupp_return() - 1624 != 0 );
+  printf("%d", cjpeg_transupp_return());
+
+  return ( cjpeg_transupp_return() - 178 != 0 );
 }

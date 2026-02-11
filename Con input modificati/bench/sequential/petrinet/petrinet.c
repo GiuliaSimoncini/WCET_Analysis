@@ -51,7 +51,7 @@ volatile long petrinet_P2_marking_member_0[ 5 ];
 volatile int  petrinet_P3_is_marked;
 volatile long petrinet_P3_marking_member_0[ 6 ];
 
-const long petrinet_CHECKSUM = 0;
+const long petrinet_CHECKSUM = 237;
 
 void _Pragma ( "entrypoint" ) petrinet_main( void )
 {
@@ -943,6 +943,21 @@ void petrinet_init( void )
     Maybe we should also initialise these arrays, as they may be read
     in the petrinet_main() function before being written.
   */
+
+  petrinet_P1_marking_member_0[0] = 12;
+  petrinet_P1_marking_member_0[1] = 23;
+  petrinet_P1_marking_member_0[2] = 34;
+
+  petrinet_P2_marking_member_0[0] = 6;
+  petrinet_P2_marking_member_0[1] = 14;
+  petrinet_P2_marking_member_0[2] = 17;
+  petrinet_P2_marking_member_0[3] = 37;
+  petrinet_P2_marking_member_0[4] = 94;
+
+  for(int i=0; i<6; i++) {
+      petrinet_P3_marking_member_0[i] = 0;
+  }
+
   /*
     volatile long petrinet_P1_marking_member_0[ 3 ];
     volatile long petrinet_P2_marking_member_0[ 5 ];
@@ -975,6 +990,8 @@ int petrinet_return( void )
 
 int main( void )
 {
+
+  petrinet_init();
   petrinet_main();
 
   return ( petrinet_return() );

@@ -115,7 +115,7 @@ void rijndael_enc_init( void )
 
 int rijndael_enc_return( void )
 {
-  return ( ( rijndael_enc_checksum == ( int )249509 ) ? 0 : -1 );
+  return ( ( rijndael_enc_checksum == ( int )254261 ) ? 0 : -1 );
 }
 
 /* A Pseudo Random Number Generator (PRNG) used for the     */

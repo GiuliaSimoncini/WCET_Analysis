@@ -115,7 +115,7 @@ void rijndael_dec_init( void )
 
 int rijndael_dec_return( void )
 {
-  return ( ( rijndael_dec_checksum == ( int )262180 ) ? 0 : -1 );
+  return ( ( rijndael_dec_checksum == ( int )260950 ) ? 0 : -1 );
 }
 
 void rijndael_dec_decfile( struct rijndael_dec_FILE *fin, struct aes *ctx )

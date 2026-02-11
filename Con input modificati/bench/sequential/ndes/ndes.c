@@ -82,10 +82,10 @@ void ndes_init()
   for ( i = 0; i < 49; i++ )
     ndes_ipc2[ i ] = ndes_ipc2_tmp[ i ];
 
-  ndes_inp.l = KNOWN_VALUE * 35;
-  ndes_inp.r = KNOWN_VALUE * 26;
-  ndes_key.l = KNOWN_VALUE * 2;
-  ndes_key.r = KNOWN_VALUE * 16;
+  ndes_inp.l = KNOWN_VALUE * 44;
+  ndes_inp.r = KNOWN_VALUE * 27;
+  ndes_key.l = KNOWN_VALUE * 4;
+  ndes_key.r = KNOWN_VALUE * 19;
 
   ndes_newkey = ndes_value;
   ndes_isw = ndes_value;
@@ -371,7 +371,7 @@ void ndes_ks( /*ndes_immense key, */int n, ndes_great *kn )
 
 int ndes_return()
 {
-  return ( ndes_icd.r + ndes_icd.l  + ( -8390656 ) ) != 0 ;
+  return ( ndes_icd.r + ndes_icd.l  + ( -8945792 ) ) != 0 ;
 }
 
 void _Pragma( "entrypoint" ) ndes_main()

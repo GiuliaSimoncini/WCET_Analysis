@@ -109,11 +109,11 @@ def plot_barchart(name_csv_file):
     # Si crea il diagramma a barre orizzontali usando barh, 
     # tenendo presente che sulle ascisse si trovano i nomi dei benchmark e 
     # sulle ordinate il tempo di esecuzione di ciascun benchmark
-    bars = plt.barh(df['benchmark_name'], df['execution_time'], color='pink', edgecolor='pink')
+    bars = plt.barh(df['benchmark_name'], df['execution_time'], color='lightblue', edgecolor='lightblue')
 
     plt.xlabel('Tempo di Esecuzione in secondi', fontsize=13)
     plt.ylabel('Nome del Benchmark', fontsize=13)
-    plt.title('Calcolo dei tempi di esecuzione dei vari benchmark in TACLeBench', fontsize=16)
+    plt.title('Calcolo dei tempi di esecuzione dei vari benchmark di TACLeBench con input modificati', fontsize=16)
     
     # Si aggiunge una griglia verticale
     plt.grid(axis='x', linestyle='--', alpha=0.6)
