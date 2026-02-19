@@ -25,7 +25,6 @@
 */
 
 #ifdef PROFILING
-#include <stdio.h>
 #endif
 
 #ifdef PROFILING
