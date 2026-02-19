@@ -30,7 +30,6 @@
 */
 
 #include "jpeglib.h"
-#include <stdio.h>
 
 /*
   Forward declaration of functions
@@ -708,8 +707,6 @@ int main( void )
 {
   cjpeg_transupp_init();
   cjpeg_transupp_main();
-
-  printf("%d", cjpeg_transupp_return());
 
   return ( cjpeg_transupp_return() - 178 != 0 );
 }
