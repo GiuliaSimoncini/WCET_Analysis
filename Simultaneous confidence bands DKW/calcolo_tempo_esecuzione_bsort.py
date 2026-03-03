@@ -78,7 +78,7 @@ def compute_statistics(times):
 
 
 # ECDF + DKW bands: 
-# si usa l'oggetto ECDF di statsmodels per calcolare CDF (funzione di distribuzione empirica) 
+# si usa l'oggetto ECDF di statsmodels per calcolare ECDF (funzione di distribuzione empirica) 
 # e poi si applica la disuguaglianza DKW per ottenere le simultaneous confidence bands: 
 # eps = sqrt( ln(2 / alpha) / (2 * n) )
 # upper(x) = min( F_n(x) + eps, 1 )
