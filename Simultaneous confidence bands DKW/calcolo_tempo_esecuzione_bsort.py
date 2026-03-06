@@ -35,7 +35,7 @@ BENCHMARKS = [
 def compile_program(c_file, executable):
     print(f"Compiling {c_file} -> {executable} ...")
     try:
-        subprocess.check_call(["gcc", c_file, "-O2", "-o", executable, "-w"])
+        subprocess.check_call(["gcc", "-O2",c_file, "-o", executable, "-w"])
         print("  Compilation successful")
     except subprocess.CalledProcessError:
         print(f"  Compilation of {c_file} failed")

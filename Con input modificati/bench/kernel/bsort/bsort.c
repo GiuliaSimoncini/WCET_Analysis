@@ -1,27 +1,9 @@
 /*
-
-  This program is part of the TACLeBench benchmark suite.
-  Version 2.0
-
-  Name: bsort
-
-  Author: unknown
-
-  Function: A program for testing the basic loop constructs,
-            integer comparisons, and simple array handling by
-            sorting 100 integers
-
-  Source: MRTC
-          http://www.mrtc.mdh.se/projects/wcet/wcet_bench/bsort100/bsort100.c
-
-  Original name: bsort100
-
-  Changes: See ChangeLog.txt
-
-  License: May be used, modified, and re-distributed freely.
-
+  Bubble Sort Benchmark - Modified with Random Input
 */
 
+#include <stdlib.h>
+#include <time.h>
 
 /*
   Forward declaration of functions
@@ -38,7 +20,7 @@ int bsort_BubbleSort( int Array[] );
   Declaration of global variables
 */
 
-#define bsort_SIZE 100
+#define bsort_SIZE 1000
 
 static int bsort_Array[ bsort_SIZE ];
 
@@ -47,14 +29,17 @@ static int bsort_Array[ bsort_SIZE ];
   Initialization- and return-value-related functions
 */
 
-/* Initializes given array with randomly generated integers. */
+/* Initializes given array with randomly generated integers */
 int bsort_Initialize( int Array[] )
 {
   int Index;
 
-  _Pragma( "loopbound min 100 max 100" )
-  for ( Index = 0; Index < bsort_SIZE; Index ++ )
-    Array[ Index ] = ( Index + 1 ) * -1;
+  _Pragma( "loopbound min 1000 max 1000" )
+  for ( Index = 0; Index < bsort_SIZE; Index++ )
+  {
+    /* Random numbers between -1000 and 1000 */
+    Array[Index] = (rand() % 2001) - 1000;
+  }
 
   return 0;
 }
@@ -71,9 +56,9 @@ int bsort_return( void )
   int Sorted = 1;
   int Index;
 
-  _Pragma( "loopbound min 99 max 99" )
-  for ( Index = 0; Index < bsort_SIZE - 1; Index ++ )
-    Sorted = Sorted && ( bsort_Array[ Index ] < bsort_Array[ Index + 1 ] );
+  _Pragma( "loopbound min 999 max 999" )
+  for ( Index = 0; Index < bsort_SIZE - 1; Index++ )
+    Sorted = Sorted && ( bsort_Array[Index] <= bsort_Array[Index + 1] );
 
   return 1 - Sorted;
 }
@@ -90,17 +75,16 @@ int bsort_BubbleSort( int Array[] )
   int Sorted = 0;
   int Temp, Index, i;
 
-  _Pragma( "loopbound min 99 max 99" )
-  for ( i = 0; i < bsort_SIZE - 1; i ++ ) {
+  for ( i = 0; i < bsort_SIZE - 1; i++ )
+  {
     Sorted = 1;
-    _Pragma( "loopbound min 3 max 99" )
-    for ( Index = 0; Index < bsort_SIZE - 1; Index ++ ) {
-      if ( Index > bsort_SIZE - i )
-        break;
-      if ( Array[ Index ] > Array[Index + 1] ) {
-        Temp = Array[ Index ];
-        Array[ Index ] = Array[ Index + 1 ];
-        Array[ Index + 1 ] = Temp;
+    for ( Index = 0; Index < bsort_SIZE - i - 1; Index++ )
+    {
+      if ( Array[Index] > Array[Index + 1] )
+      {
+        Temp = Array[Index];
+        Array[Index] = Array[Index + 1];
+        Array[Index + 1] = Temp;
         Sorted = 0;
       }
     }
@@ -125,6 +109,9 @@ void _Pragma( "entrypoint" ) bsort_main( void )
 
 int main( void )
 {
+  /* Seed random generator once */
+  srand((unsigned int)time(NULL));
+
   bsort_init();
   bsort_main();
 

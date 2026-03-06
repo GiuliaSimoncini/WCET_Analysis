@@ -38,7 +38,7 @@ def run_all_benchmarks(base_path):
         exe_name = "test"
         
         # Fase di Compilazione
-        cmd_compile = ["gcc"] + c_files + ["-o", exe_name, "-w"]
+        cmd_compile = ["gcc", "-O2"] + c_files + ["-o", exe_name, "-w"]
         
         try:
             # Si compila nella cartella in esame
@@ -142,6 +142,7 @@ if __name__ == "__main__":
         execution_times = run_all_benchmarks(benchmarks_path)
     
     if execution_times:
+        print()
         print("Risultati - nome benchmark tempo di esecuzione")
         print()
 
